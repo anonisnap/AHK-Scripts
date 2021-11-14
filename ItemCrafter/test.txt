@@ -1,0 +1,3 @@
+inv, egg
+craft
+output

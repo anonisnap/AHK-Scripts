@@ -1,0 +1,7 @@
+#sub_parts instructions
+iNv, chestplate # very nice instruction
+    craft, 3, 3
+  find   ,        egg
+inv,2,2
+
+# comment

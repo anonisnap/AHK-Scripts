@@ -1,0 +1,4 @@
+# THIS IS A COMMENT. This can be fitted on the end of a line
+comment, THIS IS A COMMENT
+find, egg, inv              # partial comment
+click, egg, 3, 3
