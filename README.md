@@ -8,12 +8,12 @@
 
 0. <a href=#contents>Contents</a>
 1. <a href=#shortcuts>Shortcuts</a>
-2. <a href=#></a>
-3. <a href=#></a>
 
 <hr>
 
 ## <span id=shortcuts>Shortcuts</span>
+
+<i><a href=#contents>(back to contents)</a></i>
 
 `shortcuts.ahk` is a small script used to create, and keep track of, small shortcuts. Allowing for adding custom replacements in a txt file.  
 
