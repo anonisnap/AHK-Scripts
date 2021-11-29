@@ -8,7 +8,7 @@ file = %A_WorkingDir%\IgnoredFiles\personal_information.txt
 ; Read File into Memory (String)
 FileRead, file_string, %file%
 ; Split on , into Array of Entries ("key":"value")
-file_contents_array := StrSplit(file_string, ",")
+file_contents_array := StrSplit(file_string, ",`r")
 ; Loop through array
 For i, entry in file_contents_array
 {
@@ -37,6 +37,18 @@ PrintDiscord() {
     SendRaw, %discord%
 }
 
+PrintCurrentDay() {
+    day := A_DD
+    month := A_MM
+    year := A_YYYY
+    SendRaw, %day%/%month%/%year%
+}
+
+PrintPassword() {
+    pass := information_map["password"]
+    SendRaw, %pass%
+}
+
 ; |===========|
 ; |  Hotkeys  |
 ; |===========|
@@ -46,12 +58,20 @@ PrintDiscord() {
 return
 
 :*?0:_username::
-    PrintUsername()()
+    PrintUsername()
 return
 
 :*?0:_discord::
-    PrintDiscord()()
+    PrintDiscord()
 return
 
-Esc::
+:*?0:_today::
+    PrintCurrentDay()
+return
+
+:*?0:_password::
+    PrintPassword()
+return
+
+:*?0:_exit::
 ExitApp
