@@ -1,6 +1,6 @@
 # AHK-Scripts
 
-###### A random assortment of AHK Scripts which I found joy in creating
+**A random assortment of AHK Scripts which I found joy in creating**
 
 ## <span id=contents>Contents</span>
 
