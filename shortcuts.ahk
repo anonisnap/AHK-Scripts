@@ -49,6 +49,12 @@ PrintPassword() {
     SendRaw, %pass%
 }
 
+; Copy and uncomment the following for more Key Values available
+; PrintTemplate() {
+;     template := information_map["CHANGE_THIS"]
+;     SendRaw %template%
+; }
+
 ; |===========|
 ; |  Hotkeys  |
 ; |===========|
@@ -72,6 +78,11 @@ return
 :*?0:_password::
     PrintPassword()
 return
+
+; Copy and uncomment the following for more Hotkeys
+; :*?0:HERE_GOES_HOTSTRING::
+;     PrintTemplate()
+; return
 
 :*?0:_exit::
 ExitApp
