@@ -33,6 +33,10 @@ PrintDiscord() {
     SendRaw, %discord%
 }
 
+; |===========|
+; |  Hotkeys  |
+; |===========|
+
 :*?0:_mail::
     PrintMail()
 return
