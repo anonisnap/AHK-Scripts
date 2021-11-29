@@ -12,9 +12,13 @@ file_contents_array := StrSplit(file_string, ",")
 ; Loop through array
 For i, entry in file_contents_array
 {
+    ; Split the Array Entry into a Key and Value pair
     key_val_pair := StrSplit(entry, ":", " `t`n`r""", 2)
+    ; Get Key as a seperate Object
     entry_key := key_val_pair[1]
+    ; Get Value as a seperate Object
     entry_val := key_val_pair[2]
+    ; Set Array Index (Key) to hold Value (Value)  |  This functions a lot like a Simple Map<Key, Val>
     information_map[entry_key] := entry_val
 }
 
