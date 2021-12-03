@@ -30,3 +30,4 @@ Current Shortcuts are
 - `_discord` - Replaces with Text from File
 - `_password` - Replaces with Text from File. Please don't actually use this...
 - `_today` - Writes current date as DD/MM/YYYY
+- `_exit` - Exits the Script, terminating the process as well
