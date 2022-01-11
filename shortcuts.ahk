@@ -4,7 +4,10 @@ SetWorkingDir, %A_ScriptDir%
 
 global information_map = []
 
+; Set the File Location for the file to be loaded
 file = %A_WorkingDir%\IgnoredFiles\personal_information.txt
+; Set FileEncoding
+FileEncoding, UTF-8
 ; Read File into Memory (String)
 FileRead, file_string, %file%
 ; Split on , into Array of Entries ("key":"value")
@@ -21,32 +24,27 @@ For i, entry in file_contents_array
     ; Set Array Index (Key) to hold Value (Value)  |  This functions a lot like a Simple Map<Key, Val>
     information_map[entry_key] := entry_val
 }
+file_string = ""
+file_contents_array = ""
 
-PrintMail() {
-    mail := information_map["mail"]
-    SendRaw, %mail%
+; For writing simple text
+PrintSimple(value) {
+    msg := information_map[value]
+    SendRaw, %msg%
 }
 
-PrintUsername() {
-    username := information_map["username"]
-    SendRaw, %username%
+; For Pasting text, that cannot be written out (Dongers and such)
+PasteSimple(value) {
+    Clipboard := information_map[value]
+    Send, ^v
 }
 
-PrintDiscord() {
-    discord := information_map["discord"]
-    SendRaw, %discord%
-}
-
+; Prints the current day as DD/MM/YYYY
 PrintCurrentDay() {
     day := A_DD
     month := A_MM
     year := A_YYYY
     SendRaw, %day%/%month%/%year%
-}
-
-PrintPassword() {
-    pass := information_map["password"]
-    SendRaw, %pass%
 }
 
 ; Copy and uncomment the following for more Key Values available
@@ -60,15 +58,15 @@ PrintPassword() {
 ; |===========|
 
 :*?0:_mail::
-    PrintMail()
+    PrintSimple("mail")
 return
 
 :*?0:_username::
-    PrintUsername()
+    PrintSimple("username")
 return
 
 :*?0:_discord::
-    PrintDiscord()
+    PrintSimple("discord")
 return
 
 :*?0:_today::
@@ -76,13 +74,27 @@ return
 return
 
 :*?0:_password::
-    PrintPassword()
+    PrintSimple("password")
+return
+
+:*?0:_shrug::
+    PrintSimple("shrug")
+return
+
+:*?0:_lenny::
+    PrintSimple("lenny")
 return
 
 ; Copy and uncomment the following for more Hotkeys
 ; :*?0:HERE_GOES_HOTSTRING::
-;     PrintTemplate()
+;     PrintSimple("HERE_GOES_IDENTIFIER")
 ; return
 
 :*?0:_exit::
+    TrayTip, Exit, Exiting shortcut script,
 ExitApp
+
+:*?0:_reload::
+    TrayTip, Reload, Reloading shortcut script,
+    Reload
+return
