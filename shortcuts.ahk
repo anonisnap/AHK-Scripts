@@ -94,7 +94,7 @@ return
     TrayTip, Exit, Exiting shortcut script,
 ExitApp
 
-:*?0:_reload::
+:*?0:+shortcuts::
     TrayTip, Reload, Reloading shortcut script,
     Reload
 return
