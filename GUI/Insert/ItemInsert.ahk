@@ -1,10 +1,12 @@
 #SingleInstance, Force
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
+CoordMode, Mouse, Screen
 
 global itemList := []
 global file := A_WorkingDir "\items.txt"
 
+; Setup for the ItemList, where all the Items will be found
 ListSetup() {
 	; Set FileEncoding
 	FileEncoding, UTF-8
@@ -20,8 +22,9 @@ ListSetup() {
 }
 
 ; Open the Window with the items to Insert
-OpenInsertWindow() { 
-	Gui, show, ,
+OpenInsertWindow() {
+	MouseGetPos, x, y
+	Gui, show, x%x% y%y%,
 }
 
 Insert(CtrlHwnd, GuiEvent, EventInfo, ErrLevel := "") {
