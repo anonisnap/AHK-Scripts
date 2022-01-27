@@ -52,7 +52,7 @@ Return
 	Reload
 return
 
-WindowSetup: ; This is stupid and I can't get it set up form within a Method... But a Label, doing what seems to be THE EXACT SAME THING as a method works fine...
+WindowSetup: ; This is stupid and I can't get it work from within a Method... But a Label, doing what seems to be THE EXACT SAME THING as a method works fine...
 	Gui, new, -Resize +AlwaysOnTop, Insert
 
 	For i, item in itemList ; Change 3 to length of a loaded list
