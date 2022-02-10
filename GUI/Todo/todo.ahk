@@ -30,12 +30,15 @@ UpdateCheckboxes(CtrlHwnd, GuiEvent, EventInfo, ErrLevel := "") {
 }
 
 RemoveCompleted() {
+	tmp := []
 	For i, val in todos
 	{
-		if (val.checked == 1) {
-			todos.RemoveAt(i)
+		if (val.checked == 0) {
+			tmp.Push(val)
 		}
 	}
+	todos := tmp
+	tmp =
 	Gosub, Refresh
 }
 
@@ -48,7 +51,12 @@ Refresh:
 	Gui, TodoWindow:add, Button, gNewTodo, Add New Todo
 	Gui, TodoWindow:add, Button, gGuiClose x+10, Exit
 	Gui, TodoWindow:add, Button, gRemoveCompleted x+10, Clean Todos
-	
+
+	; Statusbar
+	amount := todos.Length()
+	Gui, TodoWindow:add, StatusBar, , There are %amount% total todos.
+	amount =
+		 
 	; Checklist
 	For i, todo in todos
 	{
@@ -57,10 +65,7 @@ Refresh:
 		Gui, TodoWindow:add, Checkbox, Checked%isChecked% vChecked%i% gUpdateCheckboxes x20 +Wrap, %todoText%
 	}
 
-	; Statusbar
-	amount := todos.Length()
 	; MsgBox % "Amount of Todos: " amount "`nMost recent todo: " todos[amount]
-	Gui, TodoWindow:add, StatusBar, , There are %amount% total todos.
 
 	Gui, TodoWindow:show, x10 y10 w240
 Return
