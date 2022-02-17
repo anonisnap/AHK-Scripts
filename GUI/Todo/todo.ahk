@@ -65,8 +65,6 @@ Refresh:
 		Gui, TodoWindow:add, Checkbox, Checked%isChecked% vChecked%i% gUpdateCheckboxes x20 +Wrap, %todoText%
 	}
 
-	; MsgBox % "Amount of Todos: " amount "`nMost recent todo: " todos[amount]
-
 	Gui, TodoWindow:show, x10 y10 w240
 Return
 
